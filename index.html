@@ -2,7 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>o melhor site </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O melhor site</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
@@ -12,9 +13,35 @@
       color: white;
       text-align: center;
       font-family: 'Poppins', sans-serif;
-      min-height: 80vh;
-      padding-top: 60px;
+      min-height: 100vh;
+      padding-top: 40px;
       animation: fadeIn 1.2s ease;
+    }
+
+    h1 {
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-weight: 300;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 80%;
+      max-width: 300px;
+      border-radius: 15px;
+      margin: 20px auto;
+      display: block;
+      animation: fadeIn 1.5s ease;
+    }
+
+    figcaption {
+      margin-top: 10px;
+      font-weight: 500;
+      font-size: 16px;
     }
 
     button {
@@ -26,6 +53,7 @@
       border-radius: 30px;
       cursor: pointer;
       transition: 0.3s;
+      margin-top: 20px;
     }
 
     button:hover {
@@ -33,28 +61,28 @@
       background: #f1f1f1;
     }
 
-    p {
-      font-weight: 250;
-      font-size: 15px;
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 
 <body>
 
-  <h1>Site do melhor programador 0 earnings🚀</h1>
+  <h1>Site do melhor programador 0 earnings 🚀</h1>
+  <p>Meu primeiro site feito no celular</p>
+
   <figure>
-  <img src="1765840701117.jpg" alt="Alberto Einstein" style="width:200px; border-radius:10px; margin-top:20px;">
-  <figcaption>Alberto Einstein</figcaption>
+    <img src="1765840701117.jpg" alt="Alberto Einstein">
+    <figcaption>Alberto Einstein</figcaption>
   </figure>
-  <p>Meu primeiro site  feito no celular</p>
 
   <button onclick="mudarTexto()">Não clique aqui</button>
 
   <script>
     function mudarTexto() {
-      document.querySelector("p").innerText =
-        "sou o melhor programador da minha casa😎";
+      document.querySelector("p").innerText = "Sou o melhor programador da minha casa 😎";
     }
   </script>
 
