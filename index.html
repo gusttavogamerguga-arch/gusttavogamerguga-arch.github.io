@@ -15,7 +15,11 @@
       font-family: 'Poppins', sans-serif;
       min-height: 100vh;
       padding-top: 40px;
-      animation: fadeIn 1.2s ease;
+      transition: background 1s ease;
+    }
+
+    h1, p, button {
+      transition: opacity 1s ease;
     }
 
     h1 { font-weight: 700; margin-bottom: 20px; }
@@ -24,13 +28,18 @@
     button {
       background: red; color: #333; border: none;
       padding: 14px 28px; font-size: 16px;
-      border-radius: 30px; cursor: pointer; transition: 0.3s;
+      border-radius: 30px; cursor: pointer;
+      transition: transform 0.3s, opacity 1s ease;
       margin-top: 20px;
     }
 
     button:hover { transform: scale(1.08); background: #f1f1f1; }
-
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    
+    #moggadoBtn {
+      display: none; /* começa invisível */
+      background: green;
+      color: white;
+    }
   </style>
 </head>
 
@@ -41,13 +50,29 @@
 
   <button id="btnMoggar">Clique aq para ser moggado</button>
 
+  <!-- Botão que aparecerá depois -->
+  <button id="moggadoBtn">Moggado</button>
+
   <script>
-    // Função que remove todo o conteúdo e deixa o fundo branco
-    document.getElementById('btnMoggar').addEventListener('click', function() {
-      while (document.body.firstChild) {
-        document.body.removeChild(document.body.firstChild);
-      }
-      document.body.style.background = "white";
+    const btn = document.getElementById('btnMoggar');
+    const moggadoBtn = document.getElementById('moggadoBtn');
+
+    btn.addEventListener('click', function() {
+      const elementos = document.querySelectorAll('h1, p, button:not(#moggadoBtn)');
+      
+      // Aplica fade out
+      elementos.forEach(el => {
+        el.style.opacity = '0';
+      });
+      
+      // Após 1 segundo, remove os elementos e muda o fundo
+      setTimeout(() => {
+        elementos.forEach(el => el.remove());
+        document.body.style.background = 'white';
+        
+        // Mostra o botão "Moggado"
+        moggadoBtn.style.display = 'inline-block';
+      }, 1000);
     });
   </script>
 
