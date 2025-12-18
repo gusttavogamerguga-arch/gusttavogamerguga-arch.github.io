@@ -58,30 +58,7 @@
 
   <button onclick="trocarImagem()">Clique aq para ser moggado</button>
 
-  <script>
-    let mostrandoGoku = true;
-
-    function trocarImagem() {
-      const imagem = document.getElementById("minhaImagem");
-      const legenda = document.getElementById("legenda");
-      const mensagem = document.getElementById("mensagemGoku");
-
-      if (mostrandoGoku) {
-        // Alterna para Einstein
-        imagem.src = "https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg";
-        legenda.innerText = "Alberto Einstein";
-        mensagem.style.opacity = 0;
-        setTimeout(() => { mensagem.style.display = "none"; }, 500);
-      } else {
-        // Volta para Goku
-        imagem.src = "https://upload.wikimedia.org/wikipedia/en/0/03/Goku_anime.png";
-        legenda.innerText = "Goku";
-        mensagem.style.display = "block";
-        setTimeout(() => { mensagem.style.opacity = 1; }, 10);
-      }
-
-      mostrandoGoku = !mostrandoGoku;
-    }
+  
   </script>
 
 </body>
