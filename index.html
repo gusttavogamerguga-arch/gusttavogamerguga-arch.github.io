@@ -22,7 +22,16 @@
     p { font-weight: 300; font-size: 16px; margin-bottom: 20px; }
     img { width: 200px; border-radius: 10px; margin-top: 20px; animation: fadeIn 1.5s ease; }
     figcaption { margin-top: 10px; font-weight: 500; font-size: 16px; }
-    #mensagemGoku { margin-top: 10px; font-weight: 500; font-size: 16px; color: yellow; display: none; }
+    
+    #mensagemGoku {
+      margin-top: 10px;
+      font-weight: 500;
+      font-size: 16px;
+      color: yellow;
+      display: block;
+      opacity: 1;
+      transition: opacity 0.8s ease;
+    }
 
     button {
       background: red; color: #333; border: none;
@@ -43,27 +52,36 @@
   <p>Meu primeiro site feito no celular</p>
 
   <figure>
-    <img id="minhaImagem" src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg" alt="Alberto Einstein">
-    <figcaption id="legenda">Alberto Einstein</figcaption>
+    <img id="minhaImagem" src="https://upload.wikimedia.org/wikipedia/en/0/03/Goku_anime.png" alt="Goku">
+    <figcaption id="legenda">Goku</figcaption>
     <p id="mensagemGoku">O W4K é muito ruim</p>
   </figure>
 
-  <button onclick="trocarImagem()">Não clique aqui</button>
+  <button onclick="trocarImagem()">Clique aqui para alternar</button>
 
   <script>
-    let mostrandoEinstein = true;
+    let mostrandoGoku = true;
 
     function trocarImagem() {
-      if (mostrandoEinstein) {
-        document.getElementById("minhaImagem").src = "https://upload.wikimedia.org/wikipedia/en/0/03/Goku_anime.png";
-        document.getElementById("legenda").innerText = "Goku";
-        document.getElementById("mensagemGoku").style.display = "block";
+      const imagem = document.getElementById("minhaImagem");
+      const legenda = document.getElementById("legenda");
+      const mensagem = document.getElementById("mensagemGoku");
+
+      if (mostrandoGoku) {
+        // Alterna para Einstein
+        imagem.src = "https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg";
+        legenda.innerText = "Alberto Einstein";
+        mensagem.style.opacity = 0;
+        setTimeout(() => { mensagem.style.display = "none"; }, 500);
       } else {
-        document.getElementById("minhaImagem").src = "https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg";
-        document.getElementById("legenda").innerText = "Alberto Einstein";
-        document.getElementById("mensagemGoku").style.display = "none";
+        // Volta para Goku
+        imagem.src = "https://upload.wikimedia.org/wikipedia/en/0/03/Goku_anime.png";
+        legenda.innerText = "Goku";
+        mensagem.style.display = "block";
+        setTimeout(() => { mensagem.style.opacity = 1; }, 10);
       }
-      mostrandoEinstein = !mostrandoEinstein;
+
+      mostrandoGoku = !mostrandoGoku;
     }
   </script>
 
