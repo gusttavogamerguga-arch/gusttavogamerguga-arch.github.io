@@ -22,6 +22,7 @@
     p { font-weight: 300; font-size: 16px; margin-bottom: 20px; }
     img { width: 200px; border-radius: 10px; margin-top: 20px; animation: fadeIn 1.5s ease; }
     figcaption { margin-top: 10px; font-weight: 500; font-size: 16px; }
+    #mensagemGoku { margin-top: 10px; font-weight: 500; font-size: 16px; color: yellow; display: none; }
 
     button {
       background: red; color: #333; border: none;
@@ -42,15 +43,27 @@
   <p>Meu primeiro site feito no celular</p>
 
   <figure>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg" alt="Minha Imagem">
-    <figcaption>Minha Imagem</figcaption>
+    <img id="minhaImagem" src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg" alt="Alberto Einstein">
+    <figcaption id="legenda">Alberto Einstein</figcaption>
+    <p id="mensagemGoku">O W4K é muito ruim</p>
   </figure>
 
-  <button onclick="mudarTexto()">Não clique aqui</button>
+  <button onclick="trocarImagem()">Não clique aqui</button>
 
   <script>
-    function mudarTexto() {
-      document.querySelector("p").innerText = "Sou o melhor programador da minha casa 😎";
+    let mostrandoEinstein = true;
+
+    function trocarImagem() {
+      if (mostrandoEinstein) {
+        document.getElementById("minhaImagem").src = "https://upload.wikimedia.org/wikipedia/en/0/03/Goku_anime.png";
+        document.getElementById("legenda").innerText = "Goku";
+        document.getElementById("mensagemGoku").style.display = "block";
+      } else {
+        document.getElementById("minhaImagem").src = "https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg";
+        document.getElementById("legenda").innerText = "Alberto Einstein";
+        document.getElementById("mensagemGoku").style.display = "none";
+      }
+      mostrandoEinstein = !mostrandoEinstein;
     }
   </script>
 
